@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-				bat 'java -jar ./target/myfirstservice-0.0.1-SNAPSHOT.jar'
+				bat 'nohup java -jar ./target/myfirstservice-0.0.1-SNAPSHOT.jar'
             }
         }
     }
