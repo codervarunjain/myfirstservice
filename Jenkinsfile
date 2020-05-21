@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
 				sh 'mvn --version'
-				sh 'mvn clean install'
+				sh 'mvn clean package'
             }
         }
         stage('Test') {
@@ -17,7 +17,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-				sh 'sh startup.sh'
+				//sh 'sh startup.sh'
+				sh 'kubectl apply -f kubernetes-deployment-config.yaml'
             }
         }
     }
