@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myfirstservice-yaml
+  labels:
+    app: myfirstservice
+spec:
+  selector:
+    matchLabels:
+      app: myfirstservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: myfirstservice
+    spec:
+      containers:
+      - name: myfirstservice-yaml
+        image: varjain/myfirstservice:v1
+        ports:
+        - containerPort: 8081
